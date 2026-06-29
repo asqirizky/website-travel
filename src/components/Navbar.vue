@@ -4,8 +4,8 @@
     <nav :class="['navigation', { 'open': menuOpen }]">
       <router-link to="/" exact-active-class="active">Home</router-link>
       <router-link to="/about" exact-active-class="active">About</router-link>
-      <a href="">Service</a>
-      <a href="">Contact</a>
+      <router-link to="/service" exact-active-class="active">Service</router-link>
+      <router-link to="/contact" exact-active-class="active">Contact</router-link>
     </nav>
     <button class="menu-toggle" @click="menuOpen = !menuOpen" :class="{ 'open': menuOpen }">
       <span></span>

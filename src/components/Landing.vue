@@ -1,5 +1,4 @@
 <template>
-
   <section class="hero" ref="heroRef">
     <div v-for="(slide, index) in slides" :key="index" class="slide" :class="{ active: index === current, prev: index === prevIndex, 'slide-borobudur': index === 0 }">
       <img :src="slide.image" :alt="slide.name" loading="lazy">
@@ -239,12 +238,12 @@ onUnmounted(() => {
 
 .thumbs {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .thumb {
-  width: 80px;
-  height: 60px;
+  width: 100px;
+  height: 72px;
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
@@ -276,12 +275,12 @@ onUnmounted(() => {
 }
 
 .visit-text {
-  font-size: 1em;
+  font-size: 1.15em;
   color: #d4d4d8;
   text-align: right;
   line-height: 1.5;
   letter-spacing: 0.5px;
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   font-weight: 400;
 }
 
@@ -323,8 +322,8 @@ onUnmounted(() => {
   }
 
   .thumb {
-    width: 60px;
-    height: 46px;
+    width: 76px;
+    height: 56px;
   }
 }
 
@@ -348,8 +347,8 @@ onUnmounted(() => {
   }
 
   .thumb {
-    width: 48px;
-    height: 38px;
+    width: 90px;
+    height: 66px;
     border-radius: 6px;
   }
 
