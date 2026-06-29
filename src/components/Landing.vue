@@ -1,21 +1,7 @@
 <template>
-  <header :class="{ 'scrolled': scrolled }">
-    <h2 class="logo">Ijen <span>Bromo</span> Travel</h2>
-    <nav :class="['navigation', { 'open': menuOpen }]">
-      <a href="" class="active">Home</a>
-      <a href="">About</a>
-      <a href="">Service</a>
-      <a href="">Contact</a>
-    </nav>
-    <button class="menu-toggle" @click="menuOpen = !menuOpen" :class="{ 'open': menuOpen }">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </header>
 
   <section class="hero" ref="heroRef">
-    <div v-for="(slide, index) in slides" :key="index" class="slide" :class="{ active: index === current, prev: index === prevIndex }">
+    <div v-for="(slide, index) in slides" :key="index" class="slide" :class="{ active: index === current, prev: index === prevIndex, 'slide-borobudur': index === 0 }">
       <img :src="slide.image" :alt="slide.name" loading="lazy">
     </div>
 
@@ -53,10 +39,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from "vue";
-import "../assets/css/landing.css";
 
-const menuOpen = ref(false)
-const scrolled = ref(false)
 const current = ref(0)
 const prevIndex = ref(-1)
 const heroRef = ref(null)
@@ -66,9 +49,9 @@ let interval
 
 const slides = [
   {
-    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=80',
-    name: 'Bali',
-    location: 'Bali',
+    image: 'https://images.unsplash.com/photo-1705905343745-6d901a93e946?q=80',
+    name: 'Borobudur',
+    location: 'Java Center',
     desc: 'Temples, surf, and sunset — the Island of the Gods awaits.'
   },
   {
@@ -78,9 +61,9 @@ const slides = [
     desc: 'A majestic curtain of water falling into a lush emerald canyon.'
   },
   {
-    image: 'https://images.unsplash.com/photo-1575242385452-44b445d98f34?w=1600&q=80',
-    name: 'Ijen',
-    location: 'Banyuwangi',
+    image: 'https://images.unsplash.com/photo-1566559631170-a462eb20c432?q=80',
+    name: 'Prambanan',
+    location: 'Yogyakarta',
     desc: 'Blue flames and a turquoise crater lake, a surreal volcanic wonder.'
   },
   {
@@ -130,7 +113,6 @@ onMounted(() => {
     if (visitTextRef.value) {
       visitTextRef.value.style.transform = `translateY(${-value * 0.15}px)`
     }
-    scrolled.value = value > 50
   }
 
   window.addEventListener('scroll', handleScroll)
@@ -177,6 +159,10 @@ onUnmounted(() => {
   height: 100%;
   object-fit: cover;
   will-change: transform;
+}
+
+.slide-borobudur img {
+  object-position: center 70%;
 }
 
 .overlay {

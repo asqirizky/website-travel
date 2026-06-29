@@ -44,11 +44,15 @@ const items = [
 
 <style scoped>
 .destinations {
+  position: relative;
   padding: 100px 20px;
   background: #0d0d12;
+  overflow: hidden;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   max-width: 900px;
   margin: 0 auto;
 }
